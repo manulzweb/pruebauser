@@ -1,7 +1,7 @@
 import { authService } from "../services/auth.service";
 import { ROUTES } from "./routes";
 import { showToast } from "../components/alerts";
-import { setupNavBar } from "../components/navbar";
+import { setupNavBar, navBarComponent } from "../components/navbar";
 
 export function initRouter() {
   window.addEventListener("popstate", renderRoute);
@@ -26,8 +26,9 @@ export async function renderRoute() {
   const route = ROUTES[currentPath] ?? ROUTES["/404"];
 
   const userSession = authService.getSession();
-  const userRole = userSession?.roles || [];
-
+  
+  const userRole = userSession?.role || [];
+  
   // 1. Redirigir al login si es una ruta privada y no está autenticado
   if (route.requireAuth && !userSession) {
     window.history.replaceState({}, "", "/login");
@@ -46,6 +47,8 @@ export async function renderRoute() {
     route.allowedRoles &&
     !route.allowedRoles.some((role) => userRole.includes(role))
   ) {
+    console.log(!route.allowedRoles.some((role) => userRole.includes(role)))
+    
     console.warn("Acceso denegado: Rol insuficiente.");
     showToast(
       "Acceso Denegado",
@@ -63,7 +66,8 @@ export async function renderRoute() {
 
   // 5. Renderizado de la vista y componentes
   app.innerHTML = `
-        <div id="content">
+        ${navBarComponent()}
+        <div id="content" class="w-full">
             ${await route.renderView()}
         </div>
     `;

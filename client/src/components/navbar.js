@@ -1,7 +1,6 @@
 import { authService } from "../services/auth.service";
 import { escapeHtml } from "../utils/validators.util"
 import { renderRoute } from "../router/router";
-import { themeService } from "../services/theme.service";
 import { dropdownComponent, setupDropdown } from "./dropdown";
 
 export const navBarComponent = () => {
@@ -10,18 +9,13 @@ export const navBarComponent = () => {
 
   const isActive = (route) => path === route ? "bg-[var(--border-main)] text-[var(--brand-bg)]" : "text-[var(--text-muted)] hover:bg-[var(--border-main)] hover:text-[var(--brand-bg)]";
 
-  const themeSelect = dropdownComponent("theme-toggle", [
-    { value: "light", label: "Claro" },
-    { value: "dark", label: "Oscuro" }
-  ], themeService.getTheme());
-
   if (!user) {
     return `
     <header class="border-b border-[var(--border-main)] bg-[var(--bg-panel)]/90 backdrop-blur sticky top-0 z-50">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a class="text-xl font-black text-[var(--brand-bg)] transition-colors hover:text-[var(--brand-hover)]" href="/">MovieSPA</a>
         <div class="flex items-center gap-3">
-          <div class="w-32 hidden sm:block">${themeSelect}</div>
+          
           <a class="rounded-full px-4 py-2 text-sm font-semibold text-[var(--text-main)] transition-all duration-300 ease-in-out ${isActive('/login')}" href="/login">Iniciar sesión</a>
           <a class="rounded-full bg-[var(--brand-bg)] px-4 py-2 text-sm font-semibold text-[var(--brand-text)] transition-all duration-300 ease-in-out hover:bg-[var(--brand-hover)] hover:shadow-md" href="/register">Crear cuenta</a>
         </div>
@@ -44,7 +38,6 @@ export const navBarComponent = () => {
             ${canViewAdmin ? `<a class="rounded-full px-4 py-2 text-sm font-semibold text-[var(--brand-text)] transition-all duration-300 ease-in-out ${adminActive}" href="/admin">Admin</a>` : ""}
           </nav>
           <div class="md:ml-2 md:border-l md:border-[var(--border-main)] md:pl-4 flex items-center gap-3">
-            <div class="w-32 hidden sm:block">${themeSelect}</div>
             <span class="text-sm font-bold text-[var(--text-main)] hidden sm:block">${escapeHtml(user.name)}</span>
             <button id="logout-btn" class="rounded-full px-4 py-2 text-sm font-semibold text-[var(--danger-text)] transition-all duration-300 ease-in-out hover:bg-[var(--danger-hover)] cursor-pointer">Salir</button>
           </div>

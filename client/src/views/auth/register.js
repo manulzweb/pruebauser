@@ -1,9 +1,9 @@
-import { getEmailRules, getPasswordRules, hasDangerousChars } from "../../utils/validators";
+import { getEmailRules, getPasswordRules, hasDangerousChars } from "../../utils/validators.util";
 import { renderRoute } from "../../router/router";
 import { userService } from "../../services/users.service";
 import { showToast } from "../../components/alerts";
-import { hashPassword } from "../../utils/crypto";
-import { setButtonLoadingState, createDebouncedValidator, validateSync, showFieldError } from "../../utils/formUtils";
+import { hashPassword } from "../../utils/crypto.util";
+import { setButtonLoadingState, createDebouncedValidator, validateSync, showFieldError } from "../../utils/forms.util";
 import { dropdownComponent, setupDropdown } from "../../components/dropdown";
 
 export const renderRegister = () => {

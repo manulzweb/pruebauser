@@ -41,3 +41,25 @@ export const setButtonLoadingState = (button, isLoading, loadingText = "Guardand
     button.classList.remove("opacity-75", "cursor-wait")
   }
 };
+
+export const createDebouncedValidator = (input, errorElement, rules, delay = 500) => {
+  let timeoutId;
+  return () => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      const inputValue = input.value.trim();
+      let error = null;
+      for (const rule of rules) {
+        if (rule.validate(inputValue)) {
+          error = rule.errorMessage;
+          break;
+        }
+      }
+      if (error) {
+        showFieldError(input, error, errorElement);
+      } else {
+        clearFieldError(input, errorElement);
+      }
+    }, delay);
+  };
+};

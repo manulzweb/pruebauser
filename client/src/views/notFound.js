@@ -18,10 +18,10 @@ export const renderNotFound = () => {
         La ruta que intentas visitar no existe o fue movida.
       </p>
 
-      <a href="/"
+      <a href="/login"
         class="hover:cursor-pointer mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition"
       >
-        Volver al inicio
+        Volver al login
       </a>
 
     </div>

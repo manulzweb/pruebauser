@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+:root {
+  --bg-base: #f1f5f9;       /* Slate 100 */
+  --bg-panel: #ffffff;
+  --border-main: #cbd5e1;    /* Slate 300 */
+  --text-main: #1e293b;      /* Slate 800 */
+  --text-muted: #64748b;     /* Slate 500 */
+  
+  --brand-bg: #2563eb;       /* Blue 600 */
+  --brand-hover: #1d4ed8;    /* Blue 700 */
+  --brand-text: #ffffff;
+  
+  --danger-text: #dc2626;
+  --danger-hover: #fca5a5;
+  --danger-border: #ef4444;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  font-family: sans-serif;
+}

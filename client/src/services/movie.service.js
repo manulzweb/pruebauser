@@ -1,22 +1,22 @@
 import { request, jsonOptions } from './api.service.js'
 import { authService } from './auth.service.js'
 
-const get = async () => await request('/reservations')
+const get = async () => await request('/movies')
 
-const post = async (newData) => await request('/reservations', jsonOptions('POST', newData))
+const post = async (newData) => await request('/movies', jsonOptions('POST', newData))
 
-const getById = async (id) => await request(`/reservations/${id}`)
+const getById = async (id) => await request(`/movies/${id}`)
 
 const put = async (id, newData) => {
-  return await request(`/reservations/${id}`, jsonOptions('PUT', newData))
+  return await request(`/movies/${id}`, jsonOptions('PUT', newData))
 }
 
 const patch = async (id, newData) => {
-  return await request(`/reservations/${id}`, jsonOptions('PATCH', newData))
+  return await request(`/movies/${id}`, jsonOptions('PATCH', newData))
 }
 
 const del = async (id) => {
-  return await request(`/reservations/${id}`, { method: 'DELETE' })
+  return await request(`/movies/${id}`, { method: 'DELETE' })
 }
 export const movieService = {
   get,

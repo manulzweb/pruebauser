@@ -1,5 +1,4 @@
 import { showToast } from "../../components/alerts";
-import { sidebarComponent } from "../../components/Sidebar";
 import { renderRoute } from "../../router/router";
 import { authService } from "../../services/auth.service";
 import { userService } from "../../services/users.service";
@@ -86,14 +85,15 @@ export function setupLogin(){
     if (!isEmailValid || !isPasswordValid) return;
 
     try {
-    const users = await userService.get();
-    const hashedPassword = passwordValue;
-    console.log(users);
-    console.log(hashedPassword);
-    
-    
+      const users = await userService.get();
+      const hashedPassword = hashPassword(passwordValue);
+      console.log(users);
+      console.log(hashedPassword);
 
-    const user = users.find((user) => user.email.toLowerCase() === emailValue.toLowerCase() && user.password === hashedPassword);
+      const user = users.find((user) => 
+        user.email.toLowerCase() === emailValue.toLowerCase() && 
+        (user.password === passwordValue || user.password === hashedPassword)
+      );
 
     if (!user) {
       showToast("Falló el inicio de sesión", "error", "Credenciales incorrectas");

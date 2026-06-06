@@ -14,6 +14,7 @@ export const ROUTES = {
     renderView: renderHome,
     initSetup: setupHome,
     requireAuth: true,
+    redirectIfAuth: false,
     allowedRoles: ["admin", "user"]
   },
   "/login": {
@@ -51,7 +52,7 @@ export const ROUTES = {
     renderView: renderNewMovie,
     initSetup: setupNewMovie,
     requireAuth: true,
-    allowedRoles: ["admin", "user"]
+    allowedRoles: ["admin"]
   },
   "/profile": {
     title: "Perfil | MovieSPA",
