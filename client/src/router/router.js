@@ -52,7 +52,7 @@ export async function renderRoute() {
       "error",
       "No tienes permiso para acceder a esta página.",
     );
-    window.history.replaceState({}, "", "/");
+    window.history.replaceState({}, "", "/404");
     return renderRoute();
   }
 

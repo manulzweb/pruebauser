@@ -15,7 +15,7 @@ export const renderRegister = () => {
 
   return `    <main class="grid min-h-screen lg:grid-cols-[0.95fr_1.05fr]">
       <section class="hidden border-r border-[var(--border-main)] bg-[var(--brand-bg)] p-10 text-[var(--brand-text)] lg:flex lg:flex-col lg:justify-between">
-        <a class="text-xl font-black tracking-tight" href="/">TaskFlowSPA</a>
+        <a class="text-xl font-black tracking-tight" href="/">MovieSPA</a>
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.3em] opacity-80">Nuevo usuario</p>
           <h1 class="mt-4 text-5xl font-black tracking-tight">Crea tu cuenta y empieza a organizar tu flujo.</h1>
@@ -52,7 +52,7 @@ export const renderRegister = () => {
 
             <div>
               <label class="mb-2 block text-sm font-medium text-[var(--text-main)]" for="register-email">Correo</label>
-              <input id="register-email" type="email" placeholder="usuario@taskflow.com" class="w-full rounded-2xl border border-[var(--border-main)] bg-[var(--bg-base)] px-4 py-3 text-[var(--text-main)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-hover)] focus:outline-none" />
+              <input id="register-email" type="email" placeholder="usuario@moviespa.com" class="w-full rounded-2xl border border-[var(--border-main)] bg-[var(--bg-base)] px-4 py-3 text-[var(--text-main)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-hover)] focus:outline-none" />
               <p id="email-error" class="mt-1 text-sm text-red-600 hidden"></p>
             </div>
 
