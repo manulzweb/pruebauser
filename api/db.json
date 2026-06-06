@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@test.com",
+      "password": "A123456",
+      "role": ["admin"],
+      "name": "Administrador"
+    },
+    {
+      "id": 2,
+      "email": "user@test.com",
+      "password": "A123456",
+      "role": ["user"],
+      "name": "Usuario"
+    },
+    {
+      "id": 3,
+      "email": "user2@test.com",
+      "password": "A123456",
+      "role": ["user"],
+      "name": "Usuario 2"
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "movie": "The shutter Island",
+      "room": "Sala A",
+      "date": "2026-06-28",
+      "hour": "14:00",
+      "capacity": 30,
+      "available": 30,
+      "state": "active"
+    },
+    {
+      "id": 2,
+      "movie": "Movie 2",
+      "room": "Sala B",
+      "date": "2026-06-15",
+      "hour": "11:00",
+      "capacity": 30,
+      "available": 30,
+      "state": "cancel"
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "userId": 2,
+      "movieId": 1,
+      "amountTicket": 1,
+      "date": "2026-01-15",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "movieId": 3,
+      "amountTicket": 3,
+      "date": "2026-01-12",
+      "status": "confirmed"
+    },{
+      "id": 3,
+      "userId": 1,
+      "movieId": 3,
+      "amountTicket": 5,
+      "date": "2026-01-25",
+      "status": "canceled"
+    }
+  ]
+}
